@@ -1,5 +1,8 @@
+import CustomNavbar from "../components/navbar";
 const Home = () => {
-  return <div>Home</div>;
+  return <>
+    <CustomNavbar/>
+  </>
 };
 
 export default Home;
