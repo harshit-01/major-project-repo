@@ -1,0 +1,28 @@
+@import '../index.scss';
+
+*{
+    color:$primaryText;
+}
+
+.mainContainer {
+    padding: 50px;
+}
+
+.heading {
+    font-size: 32px;
+}
+
+.subheading {
+    font-size: 16px;
+}
+
+.azaadiImg {
+    width: 250px;
+}
+
+.videoContainer {
+    background-image: url('../assets/img/backgrounds/videoBG.jpg');
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
