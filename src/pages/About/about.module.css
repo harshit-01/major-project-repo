@@ -1,0 +1,45 @@
+.aboutWrapper {
+    padding: 75px;
+  }
+  
+  .aboutHeadingWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #079450;
+  }
+  
+  .aboutContentWrapper p {
+    text-justify: inter-word;
+    text-align: justify;
+  }
+  
+  .aboutImageWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .aboutImageContainer {
+    text-align: center;
+    color: #079450;
+    margin: 10px;
+  }
+  
+  .aboutImage {
+    width: 500px;
+    height: 400px;
+  }
+  
+  @media (max-width: 500px) {
+    .aboutWrapper {
+      padding: 20px;
+    }
+  
+    .aboutImage {
+      width: 300px;
+      height: 400px;
+    }
+  }
+  
