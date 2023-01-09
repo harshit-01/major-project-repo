@@ -4,6 +4,7 @@ import gt1 from '../../assets/img/hero/gt1.jpg';
 import gt2 from '../../assets/img/hero/gt2.jpg';
 import gt3 from '../../assets/img/hero/gt3.jpg';
 import gt5 from '../../assets/img/hero/gt5.jpg';
+import Footer from '../../components/footer';
 
 import styles from './about.module.css';
 const About = () => {
@@ -98,7 +99,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <h1>FOOTER</h1>
+      <Footer/>
     </>
   );
 };
