@@ -7,7 +7,10 @@ import { useState } from 'react';
 
 export default function Predict() {
   const [imgSrc, setImgSrc] = useState();
-  const [res, setRes] = useState();
+  const [predictResult, setPredictResult] = useState({
+    showResult: false,
+    result: '',
+  });
 
   function handleUpload(e) {
     setImgSrc(URL.createObjectURL(e.target.files[0]));
@@ -15,6 +18,9 @@ export default function Predict() {
 
   async function showRes() {
     try {
+      setPredictResult({
+        showResult: false,
+      });
       const resizedImage = await loadImage(imgSrc, {
         maxWidth: 256,
         maxHeight: 256,
@@ -34,30 +40,33 @@ export default function Predict() {
         });
 
         const blob = await response.blob();
-        const predictForData = new FormData();
-        predictForData.append('image', blob);
+        const imageToUpload = new File([blob], 'image.jpeg', {
+          type: blob.type,
+        });
 
-        //TODO: Not Working
+        const predictForData = new FormData();
+        predictForData.append('image', imageToUpload);
+
         const predictResponse = await fetch(
-          'https://cropsense-disease-model.onrender.com/upload',
+          'https://cropsense-disease-prediction.onrender.com/upload',
           {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
             body: predictForData,
           }
         );
 
-        const data = await predictResponse.json();
+        const { data } = await predictResponse.json();
 
-        console.log(data);
+        setPredictResult({
+          showResult: true,
+          result: data[0],
+        });
       });
     } catch (error) {
       console.log(error);
     }
   }
-
+  const { showResult, result } = predictResult;
   return (
     <>
       <Header />
@@ -80,7 +89,7 @@ export default function Predict() {
             Predict
           </Button>
         )}
-        {res && <p className={styles.result}>The plant have leaf mold</p>}
+        {showResult && <p className={styles.result}>The plant have {result}</p>}
       </Container>
       <Footer />
     </>
