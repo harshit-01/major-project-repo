@@ -34,7 +34,7 @@ export default function Header() {
       </div>
       <Navbar
         expand='lg'
-        style={{ backgroundColor: '#079450', padding: '10px' }}
+        style={{ backgroundColor: '#A8E890', padding: '10px' }}
       >
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -58,7 +58,7 @@ export default function Header() {
                 <LinkContainer to='/videos'>
                   <NavDropdown.Item>Videos</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='images'>
+                <LinkContainer to='/images'>
                   <NavDropdown.Item>Images</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>

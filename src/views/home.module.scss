@@ -1,7 +1,7 @@
 @import '../index.scss';
 
 *{
-    color:$primaryText;
+    color:$font1;
 }
 
 .mainContainer {
@@ -9,10 +9,12 @@
 }
 
 .heading {
+    color: $font1;
     font-size: 32px;
 }
 
 .subheading {
+    color: $font2;
     font-size: 16px;
 }
 
@@ -20,9 +22,31 @@
     width: 250px;
 }
 
+.homeBtn {
+    background-color: $bg1 !important;
+    color: $font1 !important;
+    border: 1px solid $bg2 !important;
+}
+
+.homeBtn:hover {
+    background-color: $bg2 !important;
+}
+
+.carouselContainer {
+    border: 2px solid $bg1;
+    box-shadow: 20px 20px 20px #D9DADE, 20px 20px 15px #FFFFFF;
+
+}
+
 .videoContainer {
     background-image: url('../assets/img/backgrounds/videoBG.jpg');
     display: flex;
     justify-content: center;
     padding: 50px;
+}
+
+.video {
+    border: 2px solid $bg2;
+    box-shadow: 9.91px 9.91px 15px #93BD2F, -9.91px -9.91px 15px #AFE339;
+
 }

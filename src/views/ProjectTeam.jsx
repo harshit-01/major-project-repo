@@ -9,10 +9,10 @@ export default function ProjectTeam() {
     return (
         <>
             <Header/>
-            <Container>
+            <Container className="projectTeamContainer">
                 {
                     teamMember.map((member) => (
-                        <Card name = {member.name} title = {member.title} img = {member.img} add = {member.add}/>
+                        <Card name = {member.name} title = {member.title} img = {member.img} add = {member.add} social = {member.linkedin}/>
                     ))
                 }
             </Container>

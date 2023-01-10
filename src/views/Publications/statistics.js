@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import styles from "./publications.module.css";
+import styles from "./publications.module.scss";
 
 const Statistics = () => {
     return (

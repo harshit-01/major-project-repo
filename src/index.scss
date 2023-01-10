@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
-
-$primaryText:#079450;
+$font1:#425F57;
+$font2:#749F82;
+$bg1:#A8E890;
+$bg2:#CFFF8D;
 
 body {
   margin: 0;
@@ -24,17 +27,28 @@ body {
 
 .headerLogo {
   text-align: center;
-  margin: 10px;
+  margin: 12px;
 }
 
 .headerImage {
   width: 150px;
+  margin-bottom: 10px;
 }
 
 .logoHeading {
   font-size: 14px;
   font-weight: 700;
-  color:$primaryText;
+  color:$font1;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  color:$font2;
+}
+.logo > span {
+  font-size: 12px;
+  color: $font2;
 }
 
 /* Header CSS Ends */
@@ -42,30 +56,25 @@ body {
 /* Navbar CSS Starts */
 
 
-
-.navbar {
-  background-color: #079450;
-}
-
 .navLink {
-  color: white !important;
+  color: $font1 !important;
   text-decoration: none;
   margin: 5px;
 }
 
 .navLink:hover {
-  color: #003b1f !important;
+  color: $font2 !important;
   padding-bottom: 5px;
   border-bottom: solid 1px #003b1f;
 }
 
 #navDropdownLink {
-  color: white;
+  color: $font1;
   margin: 5px;
 }
 
 #navDropdownLink:hover {
-  color: #003b1f !important;
+  color: $font2 !important;
   padding-bottom: 5px;
   border-bottom: solid 1px #003b1f;
 }
@@ -77,12 +86,12 @@ body {
 }
 
 .dropdown-item {
-  color: #079450;
+  color: $font1;
 }
 
-.dropdownItem:hover {
-  background-color: #079450;
-  color: white;
+.dropdown-item:hover {
+  background-color:$bg1;
+  
 }
 .btn-outline-success {
   background-color: white;
@@ -101,8 +110,8 @@ body {
 }
 
 .search {
-  outline-color: #079450;
-  color: #079450;
+  outline-color:$bg2;
+  color: $font1;
   padding: 5px;
   margin: 5px;
   width: 200px;
@@ -127,8 +136,8 @@ body {
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 20px;
+  align-items:center;
+  padding: 30px;
 }
 
 .footer-logo-heading {
@@ -150,6 +159,15 @@ body {
 }
 
 .footer-contact-content {
+  font-size: 20px;
+  color: white;
+}
+.footer-contact-content >i,span {
+  font-size: 20px;
+  color: white;
+}
+
+.footer-contact-content >span > i{
   font-size: 20px;
   color: white;
 }
@@ -227,7 +245,7 @@ body {
   left: 65px;
   border-top:5px white;
   border-right: 5px white;
-  border-bottom: 5px $primaryText;
+  border-bottom: 5px $bg2;
   border-style:double
 }
 
@@ -270,3 +288,51 @@ body {
 
 
 // Card CSS Ends
+
+// Content Container CSS Starts
+
+.contentContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentHeading {
+  font-size: 32px;
+}
+
+.contentSubheading {
+  font-size: 16px;
+}
+
+// Content Container CSS Ends
+
+// Content Card Starts
+
+.contentCardContainer {
+  padding: 10px;
+  color: white;
+  border: 2px solid #079450;
+  background-color: #079450;
+  border-radius: 10px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.contentCardText {
+  color: white;
+  display: block;
+}
+
+.contentCardLink {
+  color: white;
+}
+
+// Content Card Container Ends
+
+
+.projectTeamContainer {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+}

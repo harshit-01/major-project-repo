@@ -34,7 +34,7 @@ const Home = () => {
             <Row>
               <Col className='d-flex justify-content-center'>
                 <Link to='/contribute'>
-                  <Button variant='success'>Contribute to Us</Button>
+                  <Button className={styles.homeBtn}>Contribute to Us</Button>
                 </Link>
               </Col>
               <Col>
@@ -43,7 +43,7 @@ const Home = () => {
             </Row>
           </Col>
           <Col>
-            <Carousel interval={2000}>
+            <Carousel className={styles.carouselContainer} interval={2000}>
               <Carousel.Item>
                 <img
                   height={300}
@@ -129,7 +129,7 @@ const Home = () => {
         </Row>
       </Container>
       <Container fluid className={styles.videoContainer}>
-        <video className='video' src={video} controls></video>
+        <video className={styles.video} src={video} controls></video>
       </Container>
       <Footer />
     </>
