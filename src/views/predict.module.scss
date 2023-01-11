@@ -14,18 +14,21 @@
   font-weight: 600;
 }
 
-.imagePrev {
+.imagePrevContainer {
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 50%;
+  width: 400px;
+  height: 400px;
+  max-width: 90%;
   margin: auto;
   margin-top: 24px;
   margin-bottom: 24px;
 }
 
-.imagePrev > img {
-  height: 100%;
-  width: 100%;
+.imagePrev {
+  width: 400px;
+  height: 400px;
+  max-width: 90%;
   object-fit: cover;
 }
 

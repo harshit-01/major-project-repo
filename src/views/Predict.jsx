@@ -41,21 +41,8 @@ export default function Predict() {
       });
 
       resizedImage.image.toBlob(async function (inputBlob) {
-        const removeBgFormData = new FormData();
-        removeBgFormData.append('image_file', inputBlob);
-
-        const response = await fetch('https://api.remove.bg/v1.0/removebg', {
-          method: 'POST',
-          headers: {
-            'X-Api-Key': 'J5Jo4Eu9T5uQShZg2WefkFTt',
-          },
-          body: removeBgFormData,
-        });
-
-        const blob = await response.blob();
-
-        const imageToUpload = new File([blob], 'image.jpeg', {
-          type: blob.type,
+        const imageToUpload = new File([inputBlob], 'image.jpeg', {
+          type: inputBlob.type,
         });
 
         const predictForData = new FormData();
@@ -147,14 +134,19 @@ export default function Predict() {
           id=''
           onChange={handleUpload}
         />
-        <div className={styles.imagePrev}>
+        <div className={styles.imagePrevContainer}>
           {imgSrc && (
             <ReactCrop
               crop={crop}
               onComplete={onCropComplete}
               onChange={onCropChange}
             >
-              <img ref={imageRef} src={imgSrc} alt='disease' />
+              <img
+                className={styles.imagePrev}
+                ref={imageRef}
+                src={imgSrc}
+                alt='disease'
+              />
             </ReactCrop>
           )}
         </div>
