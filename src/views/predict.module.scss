@@ -1,67 +1,71 @@
 @import '../index.scss';
 
-
 .mainContainer {
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading {
   color: $font1;
-    font-size: 32px;
-    font-weight: 600;
+  font-size: 32px;
+  font-weight: 600;
 }
 
+.imagePrevContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 400px;
+  height: 400px;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
 
+.imagePrev {
+  width: 400px;
+  height: 400px;
+  max-width: 90%;
+  object-fit: cover;
+}
 
-  .imagePrev {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 256px;
-    width: 256px;
-    margin: auto;
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
-  
-  .imagePrev > img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  .imageUploadCard {
-    max-width: 400px;
-    margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    background-color: #fff;
-    padding: 24px 12px;
-    border-radius: 8px;
-  }
-  
-  .uploadFileInput {
-    width: 350px;
-    max-width: 100%;
-    color: #444;
-    padding: 5px;
-  }
-  
-  .uploadFileInput::file-selector-button {
-    margin-top: 8px;
-    border: none;
-    margin-right: 20px;
-    background: rgb(139, 137, 137);
-    padding: 8px 16px;
-    border-radius: 10px;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-  }
-  
-  .uploadFileInput::file-selector-button:hover {
-    background: rgb(149, 148, 148);
-  }
+.croppedImg {
+  max-width: 100%;
+  margin: 1rem;
+}
+
+.imageUploadCard {
+  max-width: 400px;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  background-color: #fff;
+  padding: 24px 12px;
+  border-radius: 8px;
+}
+
+.uploadFileInput {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+}
+
+.uploadFileInput::file-selector-button {
+  margin-top: 8px;
+  border: none;
+  margin-right: 20px;
+  background: rgb(139, 137, 137);
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.uploadFileInput::file-selector-button:hover {
+  background: rgb(149, 148, 148);
+}
