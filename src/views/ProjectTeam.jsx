@@ -9,7 +9,9 @@ export default function ProjectTeam() {
     return (
         <>
             <Header/>
+            <p className="projectTeamHeading">Project Team</p>
             <Container className="projectTeamContainer">
+                
                 {
                     teamMember.map((member) => (
                         <Card name = {member.name} title = {member.title} img = {member.img} add = {member.add} social = {member.linkedin}/>

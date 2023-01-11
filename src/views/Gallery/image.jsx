@@ -49,144 +49,144 @@ export default function Images() {
         <Header/>
         <Container className={styles.wrapper}>
             <p className={styles.heading}>Images</p>
-            <Row>
-                <Col>
+            <Row >
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_1" src={img1}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_2" src={img2}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_3" src={img3}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_4" src={img4}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_5" src={img5}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_6" src={img6}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_7" src={img7}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_8" src={img8}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="images@IARI_9" src={img9}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Testing Soil Moisture image" src={img10}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Data-Logger Placement" src={img11}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Data-Logger Placement" src={img12}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Data-Logger Placement" src={img13}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Data-Logger Placement" src={img14}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Data-Logger Placement" src={img15}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img16}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img17}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img18}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img19}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img20}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img21}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img22}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img23}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img24}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img25}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img26}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img27}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img28}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img29}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img30}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img31}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img32}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img33}/>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Krishi Mela 2022" src={img34}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Solar Panel" src={img35}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Solar Panel" src={img36}/>
                 </Col>
             </Row>
             <Row>
                 <Col></Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Team Visit" src={img37}/>
                 </Col>
-                <Col>
+                <Col className="d-flex justify-content-center">
                     <ImageCard title="Team Visit" src={img38}/>
                 </Col>
                 <Col></Col>

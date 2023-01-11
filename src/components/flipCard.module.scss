@@ -2,12 +2,12 @@
 
 .wrapper {
     height: 300px;
-    width: 400px;
+    width: 300px;
     margin: 10px 5px;
     background: linear-gradient(0deg, rgba(116,159,130,1) 0%, rgba(207,255,141,1) 29%, rgba(207,255,141,1) 100%);
     border-radius: 10px;
     border:5px solid $font2;
-    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+    box-shadow: 9.91px 9.91px 20px #B0B2B5, -9.91px -9.91px 20px #FFFFFF;
 }
 
 .title {
@@ -18,8 +18,19 @@
     border-bottom: 10px solid white;
 }
 
-.pic
-{
+.pic {
     height: 220px;
-    width: 350px;
+    width: 250px;
+}
+
+.descContainer {
+    margin: 2px auto;
+    display: flex;
+    align-items: center;
+    
+    width: 250px;
+    background-color:white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 9.91px 9.91px 15px #D9DADE, -9.91px -9.91px 15px #FFFFFF;
 }

@@ -214,7 +214,7 @@ body {
 /* Footer CSS Ends */
 
 
-// Card CSS Starts
+// Project Team Card CSS Starts
 
 .cardContainer {
   display: flex;
@@ -222,7 +222,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  box-shadow: 9.91px 9.91px 15px #D9DADE, -9.91px -9.91px 15px #FFFFFF;
   min-height: 250px;
   width: 250px;
   margin: 10px;
@@ -230,7 +230,7 @@ body {
 }
 
 .cardHead {
-  background-color: #079450;
+  background-color:$bg1;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   height: 100px;
@@ -261,12 +261,12 @@ body {
   font-size: 18px;
   font-weight: 700;
   margin: 0;
-  color: #079450;
+  color: $font1;
 }
 
 .cardTitle {
   font-size: 12px;
-  color: #079450;
+  color: $font2;
   text-align: center;
   min-height: 35px;
   margin: 0;
@@ -285,9 +285,12 @@ body {
 .cardAddress:hover {
   color: #079450;
 }
+.bi-linkedin {
+  color:#0A66C2;
+}
 
 
-// Card CSS Ends
+// Project Team Card CSS Ends
 
 // Content Container CSS Starts
 
@@ -303,7 +306,7 @@ body {
 }
 
 .contentSubheading {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 // Content Container CSS Ends
@@ -313,26 +316,38 @@ body {
 .contentCardContainer {
   padding: 10px;
   color: white;
-  border: 2px solid #079450;
-  background-color: #079450;
+  border: 2px solid $bg2;
+  background-color:$bg1;
   border-radius: 10px;
   font-size: 15px;
   margin: 10px;
+  box-shadow: 9.91px 9.91px 15px #D9DADE, -9.91px -9.91px 15px #FFFFFF;
 }
 
 .contentCardText {
-  color: white;
+  color:$font1;
+  font-weight: 600;
   display: block;
 }
 
 .contentCardLink {
-  color: white;
+  color:$font2;
 }
 
 // Content Card Container Ends
 
+// Project Team CSS Starts 
+
+.projectTeamHeading {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+}
 
 .projectTeamContainer {
   display: grid;
   grid-template-columns: repeat(5,1fr);
 }
+
+// Project Team CSS Ends

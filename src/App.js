@@ -11,6 +11,8 @@ import Chapter from './views/Publications/chapter';
 import Statistics from './views/Publications/statistics';
 import Videos from './views/Gallery/video';
 import Images from './views/Gallery/image';
+import Sensors from './views/Resources/sensors';
+import Contribute from './views/contribute';
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
       <Route path='/statistics' element={<Statistics/>} />
       <Route path='/videos' element={<Videos/>}/>
       <Route path='/images' element={<Images/>}/>
+      <Route path='/sensors' element={<Sensors/>}/>
+      <Route path='/contribute' element={<Contribute/>}/>
     </Routes>
   );
 };
