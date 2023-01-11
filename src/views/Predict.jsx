@@ -1,9 +1,11 @@
 import { Button, Container } from 'react-bootstrap';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/src/ReactCrop.scss';
 import loadImage from 'blueimp-load-image';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import styles from './predict.module.scss';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Predict() {
   const [imgSrc, setImgSrc] = useState();
@@ -11,6 +13,15 @@ export default function Predict() {
     showResult: false,
     result: '',
   });
+  const [croppedImageUrl, setCroppedImageUrl] = useState();
+  const [crop, setCrop] = useState({
+    unit: '%',
+    x: 0,
+    y: 0,
+    width: 50,
+    height: 50,
+  });
+  const imageRef = useRef();
 
   function handleUpload(e) {
     setImgSrc(URL.createObjectURL(e.target.files[0]));
@@ -21,9 +32,11 @@ export default function Predict() {
       setPredictResult({
         showResult: false,
       });
-      const resizedImage = await loadImage(imgSrc, {
-        maxWidth: 256,
-        maxHeight: 256,
+
+      console.log(croppedImageUrl);
+      const resizedImage = await loadImage(croppedImageUrl, {
+        width: 256,
+        height: 256,
         canvas: true,
       });
 
@@ -34,12 +47,13 @@ export default function Predict() {
         const response = await fetch('https://api.remove.bg/v1.0/removebg', {
           method: 'POST',
           headers: {
-            'X-Api-Key': 'Rn1PbjhV5MbZvVahFJ7jfzoh',
+            'X-Api-Key': 'J5Jo4Eu9T5uQShZg2WefkFTt',
           },
           body: removeBgFormData,
         });
 
         const blob = await response.blob();
+
         const imageToUpload = new File([blob], 'image.jpeg', {
           type: blob.type,
         });
@@ -59,13 +73,67 @@ export default function Predict() {
 
         setPredictResult({
           showResult: true,
-          result: data[0],
+          result: data,
         });
       });
     } catch (error) {
       console.log(error);
     }
   }
+
+  const onCropComplete = (crop) => {
+    makeClientCrop(crop);
+  };
+  const onCropChange = (crop) => {
+    setCrop(crop);
+  };
+
+  async function makeClientCrop(crop) {
+    if (imageRef.current && crop.width && crop.height) {
+      const croppedImageUrl = await getCroppedImg(
+        imageRef.current,
+        crop,
+        'newFile.jpeg'
+      );
+      setCroppedImageUrl(croppedImageUrl);
+    }
+  }
+
+  function getCroppedImg(image, crop, fileName) {
+    const canvas = document.createElement('canvas');
+    const scaleX = image.naturalWidth / image.width;
+    const scaleY = image.naturalHeight / image.height;
+    canvas.width = crop.width;
+    canvas.height = crop.height;
+    const ctx = canvas.getContext('2d');
+
+    ctx.drawImage(
+      image,
+      crop.x * scaleX,
+      crop.y * scaleY,
+      crop.width * scaleX,
+      crop.height * scaleY,
+      0,
+      0,
+      crop.width,
+      crop.height
+    );
+    let fileUrl;
+    return new Promise((resolve, reject) => {
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          //reject(new Error('Canvas is empty'));
+          console.error('Canvas is empty');
+          return;
+        }
+        blob.name = fileName;
+        window.URL.revokeObjectURL(fileUrl);
+        fileUrl = window.URL.createObjectURL(blob);
+        resolve(fileUrl);
+      }, 'image/jpeg');
+    });
+  }
+
   const { showResult, result } = predictResult;
   return (
     <>
@@ -79,10 +147,27 @@ export default function Predict() {
           id=''
           onChange={handleUpload}
         />
-        {imgSrc && (
-          <div className={styles.imagePrev}>
-            <img alt='disease-preview' src={imgSrc} />
-          </div>
+        <div className={styles.imagePrev}>
+          {imgSrc && (
+            <ReactCrop
+              crop={crop}
+              onComplete={onCropComplete}
+              onChange={onCropChange}
+            >
+              <img ref={imageRef} src={imgSrc} alt='disease' />
+            </ReactCrop>
+          )}
+        </div>
+
+        {croppedImageUrl && (
+          <>
+            <h4>Preview</h4>
+            <img
+              className={styles.croppedImg}
+              alt='Crop'
+              src={croppedImageUrl}
+            />
+          </>
         )}
         {imgSrc && (
           <Button variant='success' onClick={showRes}>
