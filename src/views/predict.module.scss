@@ -14,7 +14,13 @@
   font-weight: 600;
 }
 
+.prevContainer {
+    display: flex;
+    justify-content:center;
+}
+
 .imagePrevContainer {
+  text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
   width: 400px;
@@ -23,19 +29,32 @@
   margin: auto;
   margin-top: 24px;
   margin-bottom: 24px;
+  box-shadow: 9.91px 9.91px 20px #B0B2B5, -9.91px -9.91px 20px #FFFFFF;
+  padding: 10px;
 }
 
-.imagePrev {
-  width: 400px;
-  height: 400px;
+.imagePrev,.croppedImg {
+  width: 350px;
+  height: 350px;
   max-width: 90%;
   object-fit: cover;
 }
 
-.croppedImg {
-  max-width: 100%;
-  margin: 1rem;
+.cropPrevContainer {
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 400px;
+  height: 400px;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  box-shadow: 9.91px 9.91px 20px #B0B2B5, -9.91px -9.91px 20px #FFFFFF;
+
 }
+
 
 .imageUploadCard {
   max-width: 400px;
@@ -68,4 +87,13 @@
 
 .uploadFileInput::file-selector-button:hover {
   background: rgb(149, 148, 148);
+}
+
+.result
+{
+  margin-top: 15px;
+  font-weight: 600;
+  display: flex;
+  gap:20px;
+  align-items: center;
 }

@@ -1,4 +1,4 @@
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Spinner } from 'react-bootstrap';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/src/ReactCrop.scss';
 import loadImage from 'blueimp-load-image';
@@ -23,12 +23,15 @@ export default function Predict() {
   });
   const imageRef = useRef();
 
+  const [isLoading,setLoading] = useState(false)
+
   function handleUpload(e) {
     setImgSrc(URL.createObjectURL(e.target.files[0]));
   }
 
   async function showRes() {
     try {
+      setLoading(true)
       setPredictResult({
         showResult: false,
       });
@@ -57,11 +60,12 @@ export default function Predict() {
         );
 
         const { data } = await predictResponse.json();
-
+        
         setPredictResult({
           showResult: true,
           result: data,
         });
+
       });
     } catch (error) {
       console.log(error);
@@ -134,38 +138,45 @@ export default function Predict() {
           id=''
           onChange={handleUpload}
         />
-        <div className={styles.imagePrevContainer}>
-          {imgSrc && (
-            <ReactCrop
-              crop={crop}
-              onComplete={onCropComplete}
-              onChange={onCropChange}
-            >
-              <img
-                className={styles.imagePrev}
-                ref={imageRef}
-                src={imgSrc}
-                alt='disease'
-              />
-            </ReactCrop>
+        <Container className={styles.prevContainer}>
+        {imgSrc && (  
+          <div className={styles.imagePrevContainer}>
+              <h4>Uploaded Image</h4>
+              <ReactCrop
+                crop={crop}
+                aspect={1}
+                onComplete={onCropComplete}
+                onChange={onCropChange}
+              >
+                <img
+                  className={styles.imagePrev}
+                  ref={imageRef}
+                  src={imgSrc}
+                  alt='disease'
+                />
+              </ReactCrop>
+          </div>
           )}
-        </div>
-
-        {croppedImageUrl && (
-          <>
-            <h4>Preview</h4>
-            <img
-              className={styles.croppedImg}
-              alt='Crop'
-              src={croppedImageUrl}
-            />
-          </>
-        )}
+          {croppedImageUrl && (
+          <div className={styles.cropPrevContainer}>
+              <h4>Crop Preview</h4>
+              <img
+                className={styles.croppedImg}
+                alt='Crop'
+                src={croppedImageUrl}
+              />
+          </div>
+          )}
+        </Container>
+        
         {imgSrc && (
           <Button variant='success' onClick={showRes}>
             Predict
           </Button>
         )}
+        {isLoading && !showResult && <div className={styles.result}>
+        <Spinner animation="border" variant="primary" />
+          Model is Loading</div>}
         {showResult && <p className={styles.result}>The plant have {result}</p>}
       </Container>
       <Footer />

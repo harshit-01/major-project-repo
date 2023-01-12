@@ -13,6 +13,7 @@ import Videos from './views/Gallery/video';
 import Images from './views/Gallery/image';
 import Sensors from './views/Resources/sensors';
 import Contribute from './views/contribute';
+import Collaborators from './views/Resources/collaborators';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
       <Route path='/images' element={<Images/>}/>
       <Route path='/sensors' element={<Sensors/>}/>
       <Route path='/contribute' element={<Contribute/>}/>
+      <Route path='/collaborators' element={<Collaborators/>}/>
     </Routes>
   );
 };
