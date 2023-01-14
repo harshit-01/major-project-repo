@@ -24,17 +24,17 @@ const Home = () => {
       <Container className={styles.mainContainer}>
         <Row>
           <Col>
-            <p className={styles.heading}>
+            <p className="heading">
               Smart Plant Disease Surveillance System
             </p>
-            <p className={styles.subheading}>
+            <p className="subheading">
               We propose the practice of smart agriculture using automation and
               IoT technologies.
             </p>
             <Row>
               <Col className='d-flex justify-content-center'>
                 <Link to='/contribute'>
-                  <Button className={styles.homeBtn}>Contribute to Us</Button>
+                  <Button className="customBtn">Contribute to Us</Button>
                 </Link>
               </Col>
               <Col>
