@@ -3,7 +3,6 @@ import IARI from '../assets/img/logo/iari.jpg';
 import spectrum from '../assets/img/logo/spectrum.jpg';
 import NDUAT from '../assets/img/logo/nduat.png';
 import eigen from '../assets/img/logo/eigen.jpg';
-import g20 from '../assets/img/logo/g20.jpg'
 
 export default function Footer() {
   return (
@@ -49,9 +48,6 @@ export default function Footer() {
             </a>
             <a className='footer-partners-logos' href='https://www.nduat.org/'>
               <img src={NDUAT} alt='NDUAT Logo' />
-            </a>
-            <a className='footer-partners-logos' href='https://www.g20.org/en/g20-india-2023/logo-theme/'>
-              <img src={g20} alt="G20 logo" />
             </a>
           </div>
         </div>

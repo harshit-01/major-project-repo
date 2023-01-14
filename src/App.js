@@ -15,6 +15,8 @@ import Sensors from './views/Resources/sensors';
 import Contribute from './views/contribute';
 import Collaborators from './views/Resources/collaborators';
 import Contact from './views/contact';
+import ImageData from './views/Downloads/imageData';
+import Posters from './views/poster';
 
 const App = () => {
   return (
@@ -34,6 +36,8 @@ const App = () => {
       <Route path='/contribute' element={<Contribute/>}/>
       <Route path='/collaborators' element={<Collaborators/>}/>
       <Route path='/contact' element={<Contact/>}></Route>
+      <Route path='/poster' element={<Posters/>} />
+      <Route path='/imageData' element={<ImageData/>} />
     </Routes>
   );
 };

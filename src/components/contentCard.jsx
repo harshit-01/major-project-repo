@@ -6,10 +6,10 @@ export default function ContentCard(props) {
         <Container className="contentCardContainer">
             <p className="contentCardText">{props.content}</p>
             {props.url && 
-                <p className="contentCardText">URL <a className="contentCardLink" href={props.url}>{props.url}</a></p>
+                <p className="contentCardText">URL <a className="customLink" href={props.url}>{props.url}</a></p>
             }
             {props.doi &&
-                <p className="contentCardText">DOI <a className="contentCardLink" href={props.doi}>{props.doi}</a></p>
+                <p className="contentCardText">DOI <a className="customCardLink" href={props.doi}>{props.doi}</a></p>
             }
         </Container>
         

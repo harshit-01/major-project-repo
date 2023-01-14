@@ -1,10 +1,28 @@
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import emailjs from '@emailjs/browser';
+import { useRef } from "react";
 
+const serviceID = 'service_ekr887l'
+const publicKey = 'Wd5h0UVRI2iClsFZZ'
+const templateID = 'template_s8xm61h'
 
 
 export default function Contact() {
+
+    const form = useRef()
+
+    function sendEmail() 
+    {
+        emailjs.sendForm(serviceID,templateID,form.current,publicKey)
+        .then((res) => {
+            console.log(res.text)
+        },(err) => {
+            console.log(err.text)
+        })
+    }
+
     return(
         <>
             <Header/>
@@ -13,7 +31,7 @@ export default function Contact() {
                 <Container className="text-start">
                     <Row>
                         <Col>
-                            <Form className="my-3">
+                            <Form ref={form} onSubmit={sendEmail} className="my-3">
                                 <Form.Group controlId="query">
                                     <Form.Label>Query</Form.Label>
                                     <Form.Control as="textarea" row={10}></Form.Control>
@@ -30,7 +48,7 @@ export default function Contact() {
                                     <Form.Label>Subject</Form.Label>
                                     <Form.Control type="text"></Form.Control>
                                 </Form.Group>
-                                <Button type="submit" className="my-3 customBtn">Submit</Button>
+                                <Button type="submit" className="my-3 customBtn" >Submit</Button>
                             </Form>
                         </Col>
                         <Col>

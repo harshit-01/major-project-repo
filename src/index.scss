@@ -41,6 +41,10 @@ body {
   background-color: $bg2 !important;
 }
 
+.customLink {
+  color:$font2;
+}
+
 // Global CSS Ends
 
 
@@ -86,10 +90,11 @@ body {
 
 /* Navbar CSS Starts */
 
-.navLink {
+.navLink , #navDropdownLink {
+  font-size: 1rem !important;
   color: $font1 !important;
   text-decoration: none;
-  margin: 5px;
+  margin: 0 2px;
 }
 
 .navLink:hover {
@@ -98,10 +103,6 @@ body {
   border-bottom: solid 1px #003b1f;
 }
 
-#navDropdownLink {
-  color: $font1;
-  margin: 5px;
-}
 
 #navDropdownLink:hover {
   color: $font2 !important;
@@ -351,9 +352,7 @@ span {
   display: block;
 }
 
-.contentCardLink {
-  color:$font2;
-}
+
 
 // Content Card Container Ends
 

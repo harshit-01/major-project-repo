@@ -95,6 +95,11 @@ export default function Header() {
                   Project Team
                 </Nav.Link>
               </LinkContainer>
+              <LinkContainer to='/poster'>
+                <Nav.Link className='navLink' href=''>
+                  Posters
+                </Nav.Link>
+              </LinkContainer>
               <LinkContainer to='/predict'>
                 <Nav.Link className='navLink' href=''>
                   Predict Disease
