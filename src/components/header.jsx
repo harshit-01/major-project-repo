@@ -100,11 +100,20 @@ export default function Header() {
                   Posters
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/predict'>
+              {/* <LinkContainer to='/predict'>
                 <Nav.Link className='navLink' href=''>
                   Predict Disease
-                </Nav.Link>
-              </LinkContainer>
+                </Nav.Link> */}
+              {/* </LinkContainer> */}
+              <NavDropdown title='Predict' id='navDropdownLink'>
+                <LinkContainer to='/predict'>
+                  <NavDropdown.Item>Predict Disease</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/multipredict'>
+                  <NavDropdown.Item>Predict Multi Disease</NavDropdown.Item>
+                </LinkContainer>
+                </NavDropdown>
+
               <Link to='/contact'>
                 <Button className='navBtn' variant='light'>
                   Contact Us
