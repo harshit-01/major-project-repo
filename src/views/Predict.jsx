@@ -175,7 +175,7 @@ export default function Predict() {
           </Button>
         )}
         {isLoading && !showResult && <div className={styles.result}>
-        <Spinner animation="border" variant="primary" />
+        <Spinner animation="border" variant="success" />
           Model is Loading</div>}
         {showResult && <p className={styles.result}>The plant have {result}</p>}
       </Container>

@@ -18,6 +18,7 @@ import Contact from './views/contact';
 import ImageData from './views/Downloads/imageData';
 import Posters from './views/poster';
 import Multipredict from './views/Multipredict';
+import RealtimeData from './views/realtimeData';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
       <Route path='/poster' element={<Posters/>} />
       <Route path='/imageData' element={<ImageData/>} />
       <Route path='/multiPredict' element={<Multipredict/>} />
+      <Route path='/realTimeData' element={<RealtimeData/>}/>
     </Routes>
   );
 };
