@@ -13,7 +13,7 @@ import img8 from '../assets/img/carousel/home (8).jpg';
 import img9 from '../assets/img/carousel/home (9).jpg';
 import img10 from '../assets/img/carousel/home (10).jpg';
 import azadi from '../assets/img/logo/azadi.jpg';
-import g20 from '../assets/img/logo/g20.jpg'
+import g20 from '../assets/img/logo/g20.jpg';
 import styles from './home.module.scss';
 import { Link } from 'react-router-dom';
 import video from '../assets/videos/main.mp4';
@@ -25,24 +25,22 @@ const Home = () => {
       <Container className={styles.mainContainer}>
         <Row>
           <Col>
-            <p className="heading">
-              Smart Plant Disease Surveillance System
-            </p>
-            <p className="subheading">
+            <p className='heading'>Smart Plant Disease Surveillance System</p>
+            <p className='subheading'>
               We propose the practice of smart agriculture using automation and
               IoT technologies.
             </p>
             <Row>
               <Col>
-                <img className={styles.azaadiImg} src={g20}/>
+                <img className={styles.azaadiImg} src={g20} />
               </Col>
               <Col className='d-flex justify-content-center align-items-center'>
                 <Link to='/contribute'>
-                  <Button className="customBtn">Contribute to Us</Button>
+                  <Button className='customBtn'>Contribute to Us</Button>
                 </Link>
               </Col>
               <Col className='d-flex align-content-center'>
-                <img class={styles.azaadiImg} src={azadi} alt='' />
+                <img className={styles.azaadiImg} src={azadi} alt='' />
               </Col>
             </Row>
           </Col>

@@ -70,21 +70,18 @@ export default function Contribute() {
       SecureToken: 'badf397e-ee47-4fe0-b82e-b81b4d3bdb60',
       To: 'plant-iot@ipu.ac.in',
       From: 'plant-iot@ipu.ac.in',
-      Subject: 'Contribution Query from : ' + name.value,
+      Subject: 'Contribution Query from : ' + name,
       Body: emailBody,
-    }).then((message) => console.log(message));
+    });
     // for user
     window.Email.send({
       SecureToken: 'badf397e-ee47-4fe0-b82e-b81b4d3bdb60',
       To: email,
       From: 'plant-iot@ipu.ac.in',
-      Subject: 'Contribution Query from : ' + name,
-      Body:
-        emailBody +
-        '<br/><br/>Your Contribution has been recorded successfully. It will be processed within 30 days',
+      Subject: 'PlantIoT-IPU: Thank You',
+      Body: 'Dear Contributor,<br/><br/>Team PlantIoT-IPU would like to sincerely thank you for taking the time and submitting your invaluable contribution. It has been recorded successfully and will be processed within 30 days. We greatly appreciate your help!<br/><br/>Thanks and Regards,<br/>Team PlantIoT-IPU',
     })
       .then((message) => {
-        console.log(message);
         resetForm();
       })
       .catch((error) => {
@@ -125,8 +122,6 @@ export default function Contribute() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log(downloadURL);
-          console.log(imageLinks.current);
           imageLinks.current.push(downloadURL);
           if (imageLinks.current.length === images.length) {
             uploadProduct();

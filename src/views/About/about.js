@@ -80,7 +80,7 @@ const About = () => {
             </p>
           </div>
           <div className={styles.aboutImageWrapper}>
-            <div class={styles.aboutImageContainer}>
+            <div className={styles.aboutImageContainer}>
               <p>Early Blight infected tomato plant.</p>
               <img className={styles.aboutImage} src={gt1} alt='' />
             </div>
@@ -99,7 +99,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 };
