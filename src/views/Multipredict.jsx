@@ -67,7 +67,7 @@ const diseaseData = [
 ];
 
 const Multipredict = () => {
-  const [checked, setChecked] = useState([]);
+  const [selected, setSelected] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const showRes = () => {
@@ -79,16 +79,16 @@ const Multipredict = () => {
   };
 
   const handleClick = (index) => {
-    const copy = [...checked];
+    const selectedCopy = [...selected];
 
-    if (copy.includes(index)) {
-      const idx = copy.findIndex((el) => el === index);
-      copy.splice(idx, 1);
+    if (selectedCopy.includes(index)) {
+      const idx = selectedCopy.findIndex((el) => el === index);
+      selectedCopy.splice(idx, 1);
     } else {
-      copy.push(index);
+      selectedCopy.push(index);
     }
 
-    setChecked(copy);
+    setSelected(selectedCopy);
   };
 
   return (
@@ -108,7 +108,7 @@ const Multipredict = () => {
                 <ImageCard title={`Image ${index + 1}`} src={disease.img} />
                 <button
                   className={
-                    checked.includes(index) ? 'bg-danger' : 'bg-success'
+                    selected.includes(index) ? 'bg-danger' : 'bg-success'
                   }
                   style={{
                     position: 'absolute',
@@ -124,7 +124,7 @@ const Multipredict = () => {
                     borderRadius: '50%',
                   }}
                 >
-                  {checked.includes(index) ? (
+                  {selected.includes(index) ? (
                     <FaMinus style={{ fill: 'white' }} />
                   ) : (
                     <FaPlus style={{ fill: 'white' }} />
@@ -140,7 +140,7 @@ const Multipredict = () => {
         <Modal open={showModal} onClose={closeModal}>
           <h2 className='mt-4'>Possible Diseases</h2>
           <ul>
-            {checked.map((check) => {
+            {selected.map((check) => {
               return <li key={check}>{diseaseData[check].name}</li>;
             })}
           </ul>
