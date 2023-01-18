@@ -34,7 +34,7 @@ export default function Header() {
       </div>
       <Navbar
         expand='lg'
-        style={{ backgroundColor: '#A8E890', padding: '10px' }}
+        style={{ backgroundColor: '#079450', padding: '10px' }}
       >
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
