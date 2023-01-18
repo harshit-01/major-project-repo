@@ -13,44 +13,82 @@ import img6 from '../assets/img/predict/6.jpg';
 import img7 from '../assets/img/predict/7.jpg';
 import img8 from '../assets/img/predict/8.jpg';
 import img9 from '../assets/img/predict/9.jpg';
-import { useNavigate } from 'react-router-dom';
+import { FaPlus, FaMinus } from 'react-icons/fa';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 import { useState } from 'react';
 
+const diseaseData = [
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Target Spot',
+    img: img1,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Mosaic Virus',
+    img: img2,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Yellow Leaf curl Virus',
+    img: img3,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Bacterial Spot',
+    img: img4,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Early Blight',
+    img: img5,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Late Blight',
+    img: img6,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Leaf Mold',
+    img: img7,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato septoria Leaf Spot',
+    img: img8,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Tomato Spider Mite',
+    img: img9,
+  },
+];
+
 const Multipredict = () => {
-  let navigate = useNavigate();
   const [checked, setChecked] = useState([]);
-  const [isShow, setIsShow] = useState(false);
-
-  // Add/Remove checked item from list
-  const handleChange = (event) => {
-    var updatedList = [...checked];
-    if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
-    } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
-    }
-    console.log(updatedList);
-    setChecked(updatedList);
-  };
-
-  const Res = [
-    'Tomato Target Spot',
-    'Tomato Mosaic Virus',
-    'Tomato Yellow Leaf curl Virus',
-    'Tomato Bacterial Spot',
-    'Tomato Early Blight',
-    'Tomato Late Blight',
-    'Tomato Leaf Mold',
-    'Tomato septoria Leaf Spot',
-    'Tomato Spider Mite',
-  ];
+  const [showModal, setShowModal] = useState(false);
 
   const showRes = () => {
-    // console.log(checked.length);
-    // let path = `Result`;
-    // navigate(path);
-    setIsShow(!isShow);
-    for (let i = 0; i < checked.length; i++) console.log(Res[checked[i]]);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleClick = (index) => {
+    const copy = [...checked];
+
+    if (copy.includes(index)) {
+      const idx = copy.findIndex((el) => el === index);
+      copy.splice(idx, 1);
+    } else {
+      copy.push(index);
+    }
+
+    setChecked(copy);
   };
 
   return (
@@ -59,50 +97,54 @@ const Multipredict = () => {
       <Container className={styles.wrapper}>
         <p className={styles.heading}>Images</p>
         <Row>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image1' src={img1} />
-            <input type='checkbox' value={0} onChange={handleChange} />
-          </Col>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image2' src={img2} />
-            <input type='checkbox' value={1} onChange={handleChange} />
-          </Col>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image3' src={img3} />
-            <input type='checkbox' value={2} onChange={handleChange} />
-          </Col>
+          {diseaseData.map((disease, index) => {
+            return (
+              <Col
+                onClick={() => handleClick(index)}
+                style={{ cursor: 'pointer', position: 'relative' }}
+                key={disease.id}
+                className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'
+              >
+                <ImageCard title={`Image ${index + 1}`} src={disease.img} />
+                <button
+                  className={
+                    checked.includes(index) ? 'bg-danger' : 'bg-success'
+                  }
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    right: '0',
+                    border: 'none',
+                    width: '40px',
+                    height: '40px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    borderRadius: '50%',
+                  }}
+                >
+                  {checked.includes(index) ? (
+                    <FaMinus style={{ fill: 'white' }} />
+                  ) : (
+                    <FaPlus style={{ fill: 'white' }} />
+                  )}
+                </button>
+              </Col>
+            );
+          })}
         </Row>
-        <Row>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image4' src={img4} />
-            <input type='checkbox' value={3} onChange={handleChange} />
-          </Col>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image5' src={img5} />
-            <input type='checkbox' value={4} onChange={handleChange} />
-          </Col>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image6' src={img6} />
-            <input type='checkbox' value={5} onChange={handleChange} />
-          </Col>
-        </Row>
-        <Row>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image7' src={img7} />
-            <input type='checkbox' value={6} onChange={handleChange} />
-          </Col>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image8' src={img8} />
-            <input type='checkbox' value={7} onChange={handleChange} />
-          </Col>
-          <Col className='d-flex justify-content-center'>
-            <ImageCard title='image9' src={img9} />
-            <input type='checkbox' value={8} onChange={handleChange} />
-          </Col>
-        </Row>
-        <Button style={{ margin: '40px' }} variant='success' onClick={showRes}>
+        <Button onClick={showRes} style={{ margin: '40px' }} variant='success'>
           Predict
         </Button>
+        <Modal open={showModal} onClose={closeModal}>
+          <h2 className='mt-4'>Possible Diseases</h2>
+          <ul>
+            {checked.map((check) => {
+              return <li key={check}>{diseaseData[check].name}</li>;
+            })}
+          </ul>
+        </Modal>
       </Container>
       <Footer />
     </>
