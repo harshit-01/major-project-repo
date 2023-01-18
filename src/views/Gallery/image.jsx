@@ -3,16 +3,16 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import styles from './gallery.module.scss'
 import ImageCard from "../../components/imageCard";
-import img1 from '../../assets/img/Sensor Placement/SensorsIARI_1.jpg'
-import img2 from '../../assets/img/Sensor Placement/SensorsIARI_2.jpg'
-import img3 from '../../assets/img/Sensor Placement/SensorsIARI_3.jpg'
-import img4 from '../../assets/img/Sensor Placement/SensorsIARI_4.jpg'
-import img5 from '../../assets/img/Sensor Placement/SensorsIARI_5.jpg'
-import img6 from '../../assets/img/Sensor Placement/SensorsIARI_6.jpg'
-import img7 from '../../assets/img/Sensor Placement/SensorsIARI_7.jpg'
-import img8 from '../../assets/img/Sensor Placement/SensorsIARI_8.jpg'
-import img9 from '../../assets/img/Sensor Placement/SensorsIARI_9.jpg'
-import img10 from '../../assets/img/Sensor Placement/Testing Soil Moisture Sensor.jpg'
+import img1 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_1.jpg'
+import img2 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_2.jpg'
+import img3 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_3.jpg'
+import img4 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_4.jpg'
+import img5 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_5.jpg'
+import img6 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_6.jpg'
+import img7 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_7.jpg'
+import img8 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_8.jpg'
+import img9 from '../../assets/img/gallery images/Sensor Placement/SensorsIARI_9.jpg'
+import img10 from '../../assets/img/gallery images/Sensor Placement/Testing Soil Moisture Sensor.jpg'
 import img11 from '../../assets/img/gallery images/data-logger placement/data-logger (1).jpg'
 import img12 from '../../assets/img/gallery images/data-logger placement/data-logger (2).jpg'
 import img13 from '../../assets/img/gallery images/data-logger placement/data-logger (3).jpg'
@@ -183,10 +183,10 @@ export default function Images() {
             </Row>
             <Row>
                 <Col></Col>
-                <Col className="d-flex justify-content-center">
+                <Col lg={4} className="d-flex justify-content-center">
                     <ImageCard title="Team Visit" src={img37}/>
                 </Col>
-                <Col className="d-flex justify-content-center">
+                <Col lg={4} className="d-flex justify-content-center">
                     <ImageCard title="Team Visit" src={img38}/>
                 </Col>
                 <Col></Col>

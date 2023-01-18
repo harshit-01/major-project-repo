@@ -1,6 +1,20 @@
 
 export const journalData = [
     {
+        content:`Singh, A. P., Sahu, P., Chug, A., & Singh, D. (2022). A Systematic Literature Review of Machine Learning Techniques Deployed in Agriculture: A Case Study of Banana Crop. IEEE Access, 10, 87333-87360.`
+    },
+    {
+        content:`Chug, A., Bhatia, A., Singh, A. P., & Singh, D. (2022). A novel framework for image-based plant disease detection using hybrid deep learning approach. Soft Computing, 1-26.
+        `
+    },
+    {
+        content:`Bhatia, A., Chug, A., Singh, A. P., & Singh, D. (2022). A hybrid approach for noise reduction-based optimal classifier using genetic algorithm: A case study in plant disease prediction. Intelligent Data Analysis, 26(4), 1023-1049.
+        `
+    },
+    {
+        content:`Kumar, R., Chug, A., Singh, A. P., & Singh, D. (2022). A Systematic analysis of machine learning and deep learning based approaches for plant leaf disease classification: a review. Journal of Sensors, 2022.`
+    },
+    {
         content:`Anshul Bhatia, Anuradha Chug, Amit Prakash Singh, Dinesh Singh
         (2022). Fractional mega trend diffusion function-based feature
         extraction for plant disease prediction. International Journal of
@@ -23,13 +37,6 @@ export const journalData = [
         prediction, communicated in Intelligent Data Analysis. (Accepted
         for Publication) (SCIE Indexed, IOS Press), (Volume and Issue
         Released: Volume 26(4), Publication date: June, 2022)) (IF-0.860).`,
-    },
-    {
-        content:`Shradha Verma, Anuradha Chug, Amit Prakash Singh & Dinesh Singh
-        (2022). Evaluation of Image Enhancement Techniques for Deep
-        Learning Based Assessment of Disease Severity in Grape Plant.
-        Indian Phytopathological Journal (Scopus Indexed, Springer Nature,
-        Accepted).`
     },
     {
         content:`Nikita Sareen, Anuradha Chug, Amit Prakash Singh (2022). An Image
@@ -59,13 +66,6 @@ export const journalData = [
         International Journal of Modern Agriculture, 10(1), 796-812 ESCI
         Indexed (Published: March 2021).`,
         DOI:'https://doi.org/10.1007/s00500-021-06182-6'
-    },
-    {
-        content:`Priyanka Sahu, Anuradha Chug, Amit Prakash Singh, Dinesh Singh
-        (2021), Crop Leaf Disease Detection for Beans using
-        Ensembled-Convolutional Neural Networks, Soft Computing. (SCIE
-        Indexed).`,
-        URL:'http://modern-journals.com/index.php/ijma/article/view/670'
     },
     {
         content:`Nikita Sareen, Anuradha Chug, Amit Prakash Singh, An Image-Based

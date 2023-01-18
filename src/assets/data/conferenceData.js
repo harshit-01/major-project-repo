@@ -178,5 +178,14 @@ export const conferenceData = [
             (pp. 1557-1563). (IEEE, published: December 2018).`,
         DOI:'https://doi.org/10.1109/ICACCI.2018.8554842',
         URL:'https://ieeexplore.ieee.org/document/8554842'
+    },
+    {
+        content:`Sahu, P., Chug, A., Singh, A. P., & Singh, D. (2022, May). A Deep Learning-Based Disease Classification Model For Potato Crop. National e-Conference on Biotic Stress Management Strategies for achieving Sustainable Crop Production and Climate Resilience. Organized by ICAR-Indian Agricultural Research Institute. `
+    },
+    {
+        content:`Mahto, M.K., Chug, A., & Singh, A. P.(2022, May). Application of Capsule Networks for Automated Weed Detection. National e-Conference on Biotic Stress Management Strategies for achieving Sustainable Crop Production and Climate Resilience. Organized by ICAR-Indian Agricultural Research Institute.`
+    },
+    {
+        content:`Kumar, R., Chug, A., & Singh, A. P.(2022, May). Application of Machine Learning models for Powdery Mildew and Early blight disease in Tomato plant. National e-Conference on Biotic Stress Management Strategies for achieving Sustainable Crop Production and Climate Resilience. Organized by ICAR-Indian Agricultural Research Institute.`
     }
 ]
