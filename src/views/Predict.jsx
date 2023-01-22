@@ -13,6 +13,7 @@ export default function Predict() {
     showResult: false,
     result: '',
   });
+  const [croppedImageBlob, setCroppedImageBlob] = useState();
   const [croppedImageUrl, setCroppedImageUrl] = useState();
   const [crop, setCrop] = useState({
     unit: '%',
@@ -23,7 +24,7 @@ export default function Predict() {
   });
   const imageRef = useRef();
 
-  const [isLoading,setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
 
   function handleUpload(e) {
     setImgSrc(URL.createObjectURL(e.target.files[0]));
@@ -31,41 +32,31 @@ export default function Predict() {
 
   async function showRes() {
     try {
-      setLoading(true)
+      setLoading(true);
       setPredictResult({
         showResult: false,
       });
 
-      console.log(croppedImageUrl);
-      const resizedImage = await loadImage(croppedImageUrl, {
-        width: 256,
-        height: 256,
-        canvas: true,
+      const imageToUpload = new File([croppedImageBlob], 'image.jpeg', {
+        type: croppedImageBlob.type,
       });
 
-      resizedImage.image.toBlob(async function (inputBlob) {
-        const imageToUpload = new File([inputBlob], 'image.jpeg', {
-          type: inputBlob.type,
-        });
+      const predictFormData = new FormData();
+      predictFormData.append('image', imageToUpload);
 
-        const predictForData = new FormData();
-        predictForData.append('image', imageToUpload);
+      const predictResponse = await fetch(
+        'https://cropsense-disease-prediction.onrender.com/upload',
+        {
+          method: 'POST',
+          body: predictFormData,
+        }
+      );
 
-        const predictResponse = await fetch(
-          'https://cropsense-disease-prediction.onrender.com/upload',
-          {
-            method: 'POST',
-            body: predictForData,
-          }
-        );
+      const { data } = await predictResponse.json();
 
-        const { data } = await predictResponse.json();
-        
-        setPredictResult({
-          showResult: true,
-          result: data,
-        });
-
+      setPredictResult({
+        showResult: true,
+        result: data,
       });
     } catch (error) {
       console.log(error);
@@ -81,12 +72,13 @@ export default function Predict() {
 
   async function makeClientCrop(crop) {
     if (imageRef.current && crop.width && crop.height) {
-      const croppedImageUrl = await getCroppedImg(
+      const { fileUrl, blob } = await getCroppedImg(
         imageRef.current,
         crop,
         'newFile.jpeg'
       );
-      setCroppedImageUrl(croppedImageUrl);
+      setCroppedImageBlob(blob);
+      setCroppedImageUrl(fileUrl);
     }
   }
 
@@ -120,7 +112,7 @@ export default function Predict() {
         blob.name = fileName;
         window.URL.revokeObjectURL(fileUrl);
         fileUrl = window.URL.createObjectURL(blob);
-        resolve(fileUrl);
+        resolve({ blob, fileUrl });
       }, 'image/jpeg');
     });
   }
@@ -139,8 +131,8 @@ export default function Predict() {
           onChange={handleUpload}
         />
         <Container className={styles.prevContainer}>
-        {imgSrc && (  
-          <div className={styles.imagePrevContainer}>
+          {imgSrc && (
+            <div className={styles.imagePrevContainer}>
               <h4>Uploaded Image</h4>
               <ReactCrop
                 crop={crop}
@@ -155,28 +147,31 @@ export default function Predict() {
                   alt='disease'
                 />
               </ReactCrop>
-          </div>
+            </div>
           )}
           {croppedImageUrl && (
-          <div className={styles.cropPrevContainer}>
+            <div className={styles.cropPrevContainer}>
               <h4>Crop Preview</h4>
               <img
                 className={styles.croppedImg}
                 alt='Crop'
                 src={croppedImageUrl}
               />
-          </div>
+            </div>
           )}
         </Container>
-        
+
         {imgSrc && (
           <Button variant='success' onClick={showRes}>
             Predict
           </Button>
         )}
-        {isLoading && !showResult && <div className={styles.result}>
-        <Spinner animation="border" variant="success" />
-          Model is Loading</div>}
+        {isLoading && !showResult && (
+          <div className={styles.result}>
+            <Spinner animation='border' variant='success' />
+            Model is Loading
+          </div>
+        )}
         {showResult && <p className={styles.result}>The plant have {result}</p>}
       </Container>
       <Footer />
