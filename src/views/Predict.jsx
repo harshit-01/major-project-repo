@@ -22,6 +22,7 @@ export default function Predict() {
     width: 50,
     height: 50,
   });
+  const [cropInfo,setCropInfo] = useState(null);
   const imageRef = useRef();
 
   const [isLoading, setLoading] = useState(false);
@@ -58,6 +59,7 @@ export default function Predict() {
         showResult: true,
         result: data,
       });
+      cropInformation(data)
     } catch (error) {
       console.log(error);
     }
@@ -116,7 +118,30 @@ export default function Predict() {
       }, 'image/jpeg');
     });
   }
+  const cropInformation = async(data)=>{
+    
+    const url = `https://duckduckgo-duckduckgo-zero-click-info.p.rapidapi.com/?q=${data?.toString().split('_')[0]}&no_html=1&no_redirect=1&skip_disambig=1&format=json`;
 
+    const options = {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/octet-stream',
+        'X-RapidAPI-Key': '2ef5fbdefcmshbb92015178d9907p1b6477jsn7d33c3fcced7',
+        'X-RapidAPI-Host': 'duckduckgo-duckduckgo-zero-click-info.p.rapidapi.com'
+      }
+    };
+   
+    try {
+      const response = await fetch(url, options);
+      const result = await response.text();
+      if(result){
+        setCropInfo(JSON.parse(result)["Abstract"]);
+      }
+      // console.log(JSON.parse(result)["Abstract"]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const { showResult, result } = predictResult;
   return (
     <>
@@ -165,6 +190,12 @@ export default function Predict() {
           <Button variant='success' onClick={showRes}>
             Predict
           </Button>
+        )}
+        {cropInfo && (
+          <div>
+              <p className={styles.cropInfo}>Description of crop</p>
+              {cropInfo}
+          </div>
         )}
         {isLoading && !showResult && (
           <div className={styles.result}>
