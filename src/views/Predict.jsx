@@ -34,6 +34,7 @@ export default function Predict() {
   async function showRes() {
     try {
       setLoading(true);
+      setCropInfo(null);
       setPredictResult({
         showResult: false,
       });

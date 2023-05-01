@@ -14,6 +14,7 @@ import Images from './views/Gallery/image';
 import Sensors from './views/Resources/sensors';
 import Contribute from './views/contribute';
 import Collaborators from './views/Resources/collaborators';
+import CropSearch from './views/Resources/cropSearch';
 import Contact from './views/contact';
 import ImageData from './views/Downloads/imageData';
 import Posters from './views/poster';
@@ -37,6 +38,7 @@ const App = () => {
       <Route path='/sensors' element={<Sensors/>}/>
       <Route path='/contribute' element={<Contribute/>}/>
       <Route path='/collaborators' element={<Collaborators/>}/>
+      <Route path='/cropSearch' element={<CropSearch />}/>
       <Route path='/contact' element={<Contact/>}></Route>
       <Route path='/poster' element={<Posters/>} />
       <Route path='/imageData' element={<ImageData/>} />

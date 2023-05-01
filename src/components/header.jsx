@@ -53,6 +53,9 @@ export default function Header() {
                 <LinkContainer to='/collaborators'>
                   <NavDropdown.Item>Collaborators</NavDropdown.Item>
                 </LinkContainer>
+                <LinkContainer to='/cropSearch'>
+                  <NavDropdown.Item>Crop Search</NavDropdown.Item>
+                </LinkContainer>
               </NavDropdown>
               <NavDropdown title='Gallery' id='navDropdownLink'>
                 <LinkContainer to='/videos'>

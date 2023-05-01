@@ -7,3 +7,38 @@
 .heading {
     font-size: 32px;
 }
+.body{
+    margin-top:10px;
+    margin-bottom: 10px;
+    // display: flex;
+    // flex-direction: column;
+}
+.cropLabel{
+    padding-left: 0px;
+    text-align:left;
+}
+.cropName{
+    width:25%;
+    padding:10px;
+}
+.cropInfo{
+    padding-left: 0px;
+    text-align:left;
+    margin-top: 20px;
+    div{
+        color:black;
+    }
+    p{
+        font-size: 26px;
+        // font-weight: bold;
+    }
+}
+.button{
+    width:10%;
+    border: 1px solid grey;
+    padding:10px;
+    margin-left: 20px;
+    box-shadow: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+}
