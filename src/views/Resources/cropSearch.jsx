@@ -3,10 +3,13 @@ import { useState } from "react"
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import styles from '../Gallery/gallery.module.scss'
+import translate from '../../assets/img/translator/translateLogo.png'
 
 export default function CropSearch(){
     const [text,setText] = useState("");
     const [cropInfo,setCropInfo] = useState("");
+    const [show,setShow] = useState("hidden")
+    console.log(show)
 
     const cropInformation = async(data)=>{
         if(data.length === 0){
@@ -43,9 +46,21 @@ export default function CropSearch(){
         <>
             <Header/>
             <Container className={styles.wrapper}>
+                <div style={{display: 'flex',justifyContent: 'center'}}>
                 <p className={styles.heading}>
                     Crop Information
                 </p>
+                <div 
+                  style={{backgroundColor:"white",padding:"10px",cursor:"pointer",borderRadius:"5px",width:"5%"}} 
+                  title="Translate Text" 
+                  onClick= {()=>{setShow(show === "visible" ? "hidden" : "visible")}}
+                  >
+                    <img src = {translate} width='25' height='25'></img>
+                </div>
+                </div>
+                <div id="google_translate_element" style={{float:"right",marginRight:"5px",visibility:show}}>
+                  &nbsp;
+                </div>
                 <Row className={styles.body}>
                     <label className={styles.cropLabel}>Enter crop name:</label><br/>
                     <input 
