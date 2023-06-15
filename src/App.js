@@ -139,7 +139,7 @@ const App = () => {
                     <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
                       <BsFillShieldLockFill size={30} />
                     </div>
-                    <label
+                    <label 
                       htmlFor="otp"
                       className="font-bold text-xl text-white text-center"
                     >
