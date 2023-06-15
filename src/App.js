@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
@@ -37,6 +37,14 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Check if the user is already logged in
+    const user = auth.currentUser;
+    if (user) {
+      setUser(user);
+    }
+  }, []);
 
   function onCaptchVerify() {
     if (!window.recaptchaVerifier) {
@@ -94,11 +102,7 @@ const App = () => {
       <Route
         path="/"
         element={
-          user ? (
-            <Home /> 
-          ) : (
-            <Navigate to="/login" /> 
-          )
+          <Home />
         }
       />
       <Route path="/predict" element={<Predict />} />
@@ -112,12 +116,11 @@ const App = () => {
       <Route path="/videos" element={<Videos />} />
       <Route path="/images" element={<Images />} />
       <Route path="/sensors" element={<Sensors />} />
-      <Route path="/contribute" element={<Contribute />} />
       <Route path="/collaborators" element={<Collaborators />} />
       <Route path="/cropSearch" element={<CropSearch />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/poster" element={<Posters />} />
       <Route path="/imageData" element={<ImageData />} />
+      <Route path="/poster" element={<Posters />} />
       <Route path="/multiPredict" element={<Multipredict />} />
       <Route path="/realTimeData" element={<RealtimeData />} />
       <Route
@@ -131,69 +134,79 @@ const App = () => {
                 <Toaster toastOptions={{ duration: 4000 }} />
                 <div id="recaptcha-container"></div>
                 <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
-            <h1 className="text-center leading-normal text-white font-medium text-3xl mb-6">
-              Welcome to <br /> Plant IOT
-            </h1>
-            {showOTP ? (    
-                  <>
-                    <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
-                      <BsFillShieldLockFill size={30} />
-                    </div>
-                    <label 
-                      htmlFor="otp"
-                      className="font-bold text-xl text-white text-center"
-                    >
-                      Enter your OTP
-                    </label>
-                    <OtpInput
-                      value={otp}
-                      onChange={setOtp}
-                      OTPLength={6}
-                      otpType="number"
-                      disabled={false}
-                      autoFocus
-                      className="opt-container "
-                    ></OtpInput>
-                    <button
-                      onClick={onOTPVerify}
-                      className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
-                    >
-                      {loading && (
-                        <CgSpinner size={20} className="mt-1 animate-spin" />
-                      )}
-                      <span>Verify OTP</span>
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
-                      <BsTelephoneFill size={30} />
-                    </div>
-                    <label
-                      htmlFor=""
-                      className="font-bold text-xl text-white text-center"
-                    >
-                     Please Verify Your Phone Number To Proceed
-                    </label>
-                    <PhoneInput
-                      country={'in'}
-                      value={ph}
-                      onChange={setPh}
-                    />
-                    <button
-                      onClick={onSignup}
-                      className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
-                    >
-                      {loading && (
-                        <CgSpinner size={20} className="mt-1 animate-spin" />
-                      )}
-                      <span>Send code via SMS</span>
-                    </button>
-                  </>
-                )}
-              </div>
-            </div>  
+                  <h1 className="text-center leading-normal text-white font-medium text-3xl mb-6">
+                    In order to contribute <br /> 
+                  </h1>
+                  {showOTP ? (
+                    <>
+                      <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
+                        <BsFillShieldLockFill size={30} />
+                      </div>
+                      <label
+                        htmlFor="otp"
+                        className="font-bold text-xl text-white text-center"
+                      >
+                        Enter your OTP
+                      </label>
+                      <OtpInput
+                        value={otp}
+                        onChange={setOtp}
+                        OTPLength={6}
+                        otpType="number"
+                        disabled={false}
+                        autoFocus
+                        className="opt-container "
+                      ></OtpInput>
+                      <button
+                        onClick={onOTPVerify}
+                        className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                      >
+                        {loading && (
+                          <CgSpinner size={20} className="mt-1 animate-spin" />
+                        )}
+                        <span>Verify OTP</span>
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
+                        <BsTelephoneFill size={30} />
+                      </div>
+                      <label
+                        htmlFor=""
+                        className="font-bold text-xl text-white text-center"
+                      >
+                        Please Verify Your Phone Number To Proceed
+                      </label>
+                      <PhoneInput
+                        country={'in'}
+                        value={ph}
+                        onChange={setPh}
+                      />
+                      <button
+                        onClick={onSignup}
+                        className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                      >
+                        {loading && (
+                          <CgSpinner size={20} className="mt-1 animate-spin" />
+                        )}
+                        <span>Send code via SMS</span>
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>  
             </section>
+          )
+        }
+      />
+      <Route
+        path="/contribute"
+        element={
+          user ? (
+            <Contribute />
+          ) : (
+            <Navigate to="/login" /> // Redirect to login if user is not logged in
           )
         }
       />
