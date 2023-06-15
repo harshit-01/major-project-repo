@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC8ZVFnJe-OAjpKI9SCe4yWf35JYVTCYX8",
-  authDomain: "plantiot-otplogin.firebaseapp.com",
-  projectId: "plantiot-otplogin",
-  storageBucket: "plantiot-otplogin.appspot.com",
-  messagingSenderId: "852312484386",
-  appId: "1:852312484386:web:c3bee1f542c3cd5abab87b"
+  apiKey: "AIzaSyCb81jxOUFj95A6nFrmfWccpWXEnsR7iHI",
+  authDomain: "plantiot-otp-cd12e.firebaseapp.com",
+  projectId: "plantiot-otp-cd12e",
+  storageBucket: "plantiot-otp-cd12e.appspot.com",
+  messagingSenderId: "705909423904",
+  appId: "1:705909423904:web:ad8c7cad44e7a1558a2145"
 };
 
 const app = initializeApp(firebaseConfig, 'otp-login-app');
