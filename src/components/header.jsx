@@ -115,6 +115,9 @@ export default function Header() {
                 <LinkContainer to='/multipredict'>
                   <NavDropdown.Item>Predict Multi Disease</NavDropdown.Item>
                 </LinkContainer>
+                <LinkContainer to='/cropRecommendation'>
+                  <NavDropdown.Item>Crop Recommendation System</NavDropdown.Item>
+                </LinkContainer>
                 </NavDropdown>
 
               <Link to='/contact'>

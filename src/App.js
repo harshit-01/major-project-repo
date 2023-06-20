@@ -3,6 +3,7 @@ import About from './views/About/about'
 import Home from './views/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Predict from './views/Predict';
+import CropRecommendationSystem from './views/CropRecommendationSystem'
 import ProjectTeam from './views/ProjectTeam';
 import Journals from './views/Publications/journals';
 import Patents from './views/Publications/patents';
@@ -44,6 +45,7 @@ const App = () => {
       <Route path='/imageData' element={<ImageData/>} />
       <Route path='/multiPredict' element={<Multipredict/>} />
       <Route path='/realTimeData' element={<RealtimeData/>}/>
+      <Route path="/CropRecommendation" element={<CropRecommendationSystem/>}/>
     </Routes>
   );
 };
