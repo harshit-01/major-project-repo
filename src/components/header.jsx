@@ -121,7 +121,7 @@ export default function Header() {
                 </NavDropdown>
 
               <Link to='/contact'>
-                <Button className='navBtn' variant='light'>
+                <Button className='navBtn' variant='light' style={{backgroundColor:"#fff",color:"black"}}>
                   Contact Us
                 </Button>
               </Link>
@@ -135,7 +135,7 @@ export default function Header() {
               id='search'
               placeholder='Search Here !!'
             />
-            <Button variant='light'>Search</Button>
+            <Button style={{backgroundColor:"#fff",color:"black"}} >Search</Button>
           </div>
         </Container>
       </Navbar>

@@ -18,22 +18,27 @@ export default function CropRecommendationSystem(){
         var rainfall = formData.get('rainfall');
         console.log(city,rainfall)
         if(city?.length > 0 && rainfall?.length > 0){
-            const url = "https://minor-project-server.onrender.com/crop-predict"
+            //https://minor-project-server.onrender.com/crop-predict
+            const url = "http://127.0.0.1:5000/crop-predict"
             const headers = {
+                    'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin':'*',
                     'Access-Control-Allow-Methods':'GET,POST,PATCH,OPTIONS'
                 }
             const options = {
                 method: 'GET',
-                // mode: 'cors',
+                mode: 'cors',
                 headers:headers
             };
             try {
-                const response = await fetch(url + `?N=${nitrogen}&P=${phosphorus}&K=${potassium}&ph=${phValue}&rainfall=${rainfall}&city=${city}}`, options);
-                console.log(response)
-                const result = await response.json();
-                setCrop(1)
-                console.log(JSON.parse(result));
+                const response = await fetch(url + `?N=${nitrogen}&P=${phosphorus}&K=${potassium}&ph=${phValue}&rainfall=${rainfall}&city=${city}`, options)
+                .then((res)=>res.json())
+                .then((res)=>{
+                    let result = res?.prediction[0].toUpperCase() + res?.prediction.slice(1);
+                    setCrop(result)
+                    console.log(res);
+                })
+
               } catch (error) {
                 console.error(error);
                 setCrop(null);
@@ -54,17 +59,17 @@ export default function CropRecommendationSystem(){
                 
                 <form action="" method="post" id="cropRecommend">
                     <label htmlFor="nitrogen">Enter Nitrogen value:</label>
-                    <input type="number" id="nitrogen" name="nitrogen" defaultValue="120"></input><br/>
+                    <input className={styles.input} type="number" id="nitrogen" name="nitrogen" defaultValue="120"></input><br/>
                     <label htmlFor="Phosphorus">Enter Phosphorus value:</label>
-                    <input type="number" id="Phosphorus" name="Phosphorus" defaultValue ="80"></input><br/>
+                    <input className={styles.input} type="number" id="Phosphorus" name="Phosphorus" defaultValue ="80"></input><br/>
                     <label htmlFor="Potassium">Enter Potassium value:</label>
-                    <input type="number" id="Potassium" name="Potassium" defaultValue ="50"></input><br/>
+                    <input className={styles.input} type="number" id="Potassium" name="Potassium" defaultValue ="50"></input><br/>
                     <label htmlFor="PhValue">Enter phValue value:</label>
-                    <input type="number" id="PhValue" name="PhValue" defaultValue ="7"></input><br/>
+                    <input className={styles.input} type="number" id="PhValue" name="PhValue" defaultValue ="7"></input><br/>
                     <label htmlFor="city">Enter City value:</label>
-                    <input type="text" id="city" name="city" placeholder ="New delhi" required></input><br/>
+                    <input className={styles.input} type="text" id="city" name="city" placeholder ="New delhi" required></input><br/>
                     <label htmlFor="rainfall">Enter Rainfall value:</label>
-                    <input type="number" id="rainfall" name="rainfall" placeholder ="Enter value in mm" required></input><br/>
+                    <input className={styles.input} type="number" id="rainfall" name="rainfall" placeholder ="Enter value in mm" required></input><br/>
                     <button className={styles.button} type ="submit" onClick={handleClick}>Submit</button>
                 </form>
                 {crop && <p className={styles.result}>Recommended crop based on the values is : {crop}</p>}
