@@ -68,6 +68,7 @@ export default function CropSearch(){
                         type="text"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
+                        placeholder="Enter Crop name"
                     >
                     </input><br/>
                     <button className={styles.button} type="button" onClick={()=>cropInformation(text)}>

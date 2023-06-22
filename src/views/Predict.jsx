@@ -188,7 +188,7 @@ export default function Predict() {
         </Container>
 
         {imgSrc && (
-          <Button variant='success' onClick={showRes}>
+          <Button variant='success' onClick={showRes}  className={styles.predictBtn}>
             Predict
           </Button>
         )}
